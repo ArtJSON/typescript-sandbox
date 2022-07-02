@@ -97,8 +97,8 @@ interface IPerson {
 }
 
 class Person implements IPerson {
-  private id: number;
-  private name: string;
+  id: number;
+  name: string;
 
   constructor(id: number, name: string) {
     this.id = id;
@@ -106,9 +106,30 @@ class Person implements IPerson {
   }
 
   register(): string {
-    return;
+    return `${this.name} is now registered`;
   }
 }
 
 const brad = new Person(1, "Brad Trevor");
 const michael = new Person(2, "Michael Jordan");
+
+class Employee extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const testEmp = new Employee(3, "Shawn", "CEO");
+
+// Generics
+function getArray<T>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+let numArr = getArray<number>([1, 2, 3, 4]);
+let strArr = getArray<string>(["Greg", "John", "Rich"]);
+
+console.log(numArr);
