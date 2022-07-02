@@ -68,3 +68,47 @@ function addNum(x: number, y: number): number {
 function log(message: string | number): void {
   console.log(message);
 }
+
+// Interfaces
+interface IUser {
+  readonly id: number; // readonly
+  name: string;
+  age?: number; // optional property
+}
+
+const user2: IUser = {
+  id: 1,
+  name: "dsads",
+};
+
+// Inteface with functions
+interface MathFunc {
+  (x: number, y: number): number;
+}
+
+const add: MathFunc = (x: number, y: number): number => x + y;
+const substract: MathFunc = (x: number, y: number): number => x - y;
+
+// Classes used to create object
+interface IPerson {
+  readonly id: number;
+  name: string;
+  register(): string;
+}
+
+class Person implements IPerson {
+  private id: number;
+  private name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  register(): string {
+    return;
+  }
+}
+
+const brad = new Person(1, "Brad Trevor");
+const michael = new Person(2, "Michael Jordan");
